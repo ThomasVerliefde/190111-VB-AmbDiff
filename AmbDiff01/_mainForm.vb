@@ -10,10 +10,10 @@ Public Class _mainForm
 
 	'All NodaTime.Instant variables, to check starting points of each part
 	Private startT As Instant
-	Private otherT As Instant
+	'Private otherT As Instant
 	Private practiceT As Instant
 	Private experimentT As Instant
-	Private explicitT As Instant
+	'Private explicitT As Instant
 	Private demographicsT As Instant
 	Private endT As Instant
 
@@ -61,10 +61,11 @@ Public Class _mainForm
 				Me.startT = time.GetCurrentInstant()
 
 			Case 1 'Collecting Names of 'Significant Others'
-				Me.otherT = time.GetCurrentInstant()
-				otherForm.ShowDialog()
-				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_2_practice" & Me.keyAss)
-				otherForm.Dispose()
+
+				'Me.otherT = time.GetCurrentInstant()
+				'otherForm.ShowDialog()
+				'Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_2_practice" & Me.keyAss)
+				'otherForm.Dispose()
 
 				' Creating All Practice & Experiment Trials
 
@@ -90,16 +91,16 @@ Public Class _mainForm
 								New List(Of String)({practicePrime_Str(0)})
 								})
 
-				If debugMode Then
-					Console.WriteLine("- practicePrimes -")
-					For Each c In Me.practicePrimes
-						For Each d In c
-							Console.Write(" * " + d)
-						Next
-						Console.WriteLine("")
-					Next
-					Console.WriteLine("")
-				End If
+				'If debugMode Then
+				'	Console.WriteLine("- practicePrimes -")
+				'	For Each c In Me.practicePrimes
+				'		For Each d In c
+				'			Console.Write(" * " + d)
+				'		Next
+				'		Console.WriteLine("")
+				'	Next
+				'	Console.WriteLine("")
+				'End If
 
 				practiceTrials = createTrials(
 										Me.practicePrimes,
