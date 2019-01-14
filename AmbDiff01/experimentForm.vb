@@ -26,7 +26,7 @@ Public Class experimentForm
 		Me.BackColor = Color.White
 
 		Cursor.Hide()
-		Me.timerITI.Interval = 1500
+		Me.timerITI.Interval = 300
 		Me.timerFix.Interval = 500
 		Me.timerPrime.Interval = 150
 
@@ -130,7 +130,7 @@ Public Class experimentForm
 			Me.stopwatchTarget.Reset()
 			Me.timerITI.Start()
 			Me.targetLab.Visible = False
-			Me.slowLab.Visible = Me.answeringTime > 1500
+			Me.slowLab.Visible = Me.answeringTime > 1000
 			Me.ignoreKeys = True
 
 			dataFrame("experiment_" & Me.trialCounter & "_answer") = e.KeyCode.ToString

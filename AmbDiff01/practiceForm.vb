@@ -39,7 +39,7 @@ Public Class practiceForm
 
 		Me.Controls.AddRange({Me.leftLab, Me.rightLab, Me.slowLab, Me.fixLab, Me.primeLab, Me.targetLab})
 
-		Select Case mainForm.keyAss
+		Select Case _mainForm.keyAss
 			Case "Apos"
 				Me.leftLab.Text = "A = positiv"
 				Me.rightLab.Text = "L = negativ"
