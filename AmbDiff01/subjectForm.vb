@@ -47,22 +47,22 @@
 			Me.condN = setCond(Me.subjN)
 			Select Case Me.condN
 				Case 0
-					mainForm.keyAss = "Apos"
-					mainForm.firstOthers = "Pos"
+					_mainForm.keyAss = "Apos"
+					_mainForm.firstOthers = "Pos"
 				Case 1
-					mainForm.keyAss = "Apos"
-					mainForm.firstOthers = "Neg"
+					_mainForm.keyAss = "Apos"
+					_mainForm.firstOthers = "Neg"
 				Case 2
-					mainForm.keyAss = "Aneg"
-					mainForm.firstOthers = "Pos"
+					_mainForm.keyAss = "Aneg"
+					_mainForm.firstOthers = "Pos"
 				Case 3
-					mainForm.keyAss = "Aneg"
-					mainForm.firstOthers = "Neg"
+					_mainForm.keyAss = "Aneg"
+					_mainForm.firstOthers = "Neg"
 			End Select
 
 			dataFrame("Subject") = Me.subjN.ToString
-			dataFrame("Key") = mainForm.keyAss
-			dataFrame("FirstOthers") = mainForm.firstOthers
+			dataFrame("Key") = _mainForm.keyAss
+			dataFrame("FirstOthers") = _mainForm.firstOthers
 
 			If debugMode Then
 				dataFrame("Subject") = "DEBUG"
