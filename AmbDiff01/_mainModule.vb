@@ -11,13 +11,18 @@ Module mainModule
 
 	Friend sansSerif72 = New Font("Microsoft Sans Serif", 72)
 	Friend sansSerif60 = New Font("Microsoft Sans Serif", 60)
+	Friend sansSerif40 = New Font("Microsoft Sans Serif", 40)
 	Friend sansSerif25B = New Font("Microsoft Sans Serif", 25, FontStyle.Bold)
 	Friend sansSerif22 = New Font("Microsoft Sans Serif", 22)
 	Friend sansSerif20 = New Font("Microsoft Sans Serif", 20)
 	Friend sansSerif14 = New Font("Microsoft Sans Serif", 14)
 
+	Public practicePrimes As List(Of List(Of String))
 	Public practiceTrials As List(Of List(Of String))
+	Public experimentPrimes As List(Of List(Of String))
 	Public experimentTrials As List(Of List(Of String))
+
+	Public blockCounter As Integer
 
 	Public Class labelledTrackbar
 		Inherits Panel
@@ -310,43 +315,43 @@ Module mainModule
 	End Function
 
 
-	Public Function createPrimes(otherPos As List(Of String), otherNeg As List(Of String), posList As List(Of String), negList As List(Of String), strList As List(Of String))
+	'Public Function createPrimes(otherPos As List(Of String), otherNeg As List(Of String), posList As List(Of String), negList As List(Of String), strList As List(Of String))
 
-		'otherPos = List of 2 positive names of SOs
-		'otherPos = List of 2 negative names of SOs
-		'posList = List of ALL positive noun primes (3L, 4L, ..., 10L)
-		'negList = List of ALL negative noun primes (3L, 4L, ..., 10L)
-		'strList = List of letter strings: repeats of 4 letters in 3L, 4L, ..., 10L (i.e. BBB, SSS, RRR, GGG, BBBB, SSSS, ..., GGGGGGGGGG)
+	'	'otherPos = List of 2 positive names of SOs
+	'	'otherPos = List of 2 negative names of SOs
+	'	'posList = List of ALL positive noun primes (3L, 4L, ..., 10L)
+	'	'negList = List of ALL negative noun primes (3L, 4L, ..., 10L)
+	'	'strList = List of letter strings: repeats of 4 letters in 3L, 4L, ..., 10L (i.e. BBB, SSS, RRR, GGG, BBBB, SSSS, ..., GGGGGGGGGG)
 
-		Dim otherPrimes As New List(Of String)(otherPos.Concat(otherNeg))
-		Dim valList As New List(Of List(Of String))({posList, negList})
-		Dim Primes As New List(Of List(Of String))({New List(Of String)(2), New List(Of String)(2), New List(Of String)(2), New List(Of String)(2), New List(Of String)(4)})
-		'shuffleList(otherPrimes) 'I'm not really sure whether it's better to shuffle these names or not.
-		'Assuming the order is (Pos, Pos, Neg, Neg), length pairings will be crossed (posName + posPrime, posName + negPrime, negName + posPrime, negName + negPrime)
+	'	Dim otherPrimes As New List(Of String)(otherPos.Concat(otherNeg))
+	'	Dim valList As New List(Of List(Of String))({posList, negList})
+	'	Dim Primes As New List(Of List(Of String))({New List(Of String)(2), New List(Of String)(2), New List(Of String)(2), New List(Of String)(2), New List(Of String)(4)})
+	'	'shuffleList(otherPrimes) 'I'm not really sure whether it's better to shuffle these names or not.
+	'	'Assuming the order is (Pos, Pos, Neg, Neg), length pairings will be crossed (posName + posPrime, posName + negPrime, negName + posPrime, negName + negPrime)
 
-		For Each name In otherPrimes
-			Dim index As Integer = otherPrimes.IndexOf(name)
-			Dim index2 As Integer = index Mod 2
-			Dim nameL As Integer = Math.Max(Math.Min(name.Length - 3 + name.Length Mod 2, 7), 1)
-			'Bins the length of otherName to 3-4, 5-6, 7-8, and 9-10, transcribed as 1, 3, 5, & 7
-			'Takes into account that names could be shorter than 3 or longer than 10, and makes sure the result is maximum 7 and minimum 1
-			Primes(index2).Add(valList(index2)(nameL - 1 + Primes(index2).Count))
-			'Fills either Primes(0) or Primes(1), with valList(0) or valList(1) items (0 will be positive, 1 will be negative)
-			'The selected item in valList is matched to be similarly long as the otherName
-			'For the first positive and negative item, within bins the shorter word is chosen; opposite is true for the second items
-			'This should prevent words being used twice
-			' Another way to tackle this, could be to set wordlists with 2 words for each length, and match exactly on length, but would require quite some recoding
-			Primes(4).Add(strList(index + (4 * (nameL - (name.Length Mod 2)))))
-			'Adds a letter string, exactly matching the length of otherName
-			'4 different letters are used (B,S,G,R) and as such, 1 match for each otherName
-			If Primes(2).Count < 2 Then
-				Primes(2).Add(name)
-			Else Primes(3).Add(name)
-			End If 'Also adds the otherPrime name
-		Next
-		Return Primes 'Primes is a List of Lists of Strings -> 5 lists: PositiveNounPrimes(2), NegativeNounPrimes(2), PositiveOthers(2), NegativeOthers(2), MatchingLetterStrings(4)
+	'	For Each name In otherPrimes
+	'		Dim index As Integer = otherPrimes.IndexOf(name)
+	'		Dim index2 As Integer = index Mod 2
+	'		Dim nameL As Integer = Math.Max(Math.Min(name.Length - 3 + name.Length Mod 2, 7), 1)
+	'		'Bins the length of otherName to 3-4, 5-6, 7-8, and 9-10, transcribed as 1, 3, 5, & 7
+	'		'Takes into account that names could be shorter than 3 or longer than 10, and makes sure the result is maximum 7 and minimum 1
+	'		Primes(index2).Add(valList(index2)(nameL - 1 + Primes(index2).Count))
+	'		'Fills either Primes(0) or Primes(1), with valList(0) or valList(1) items (0 will be positive, 1 will be negative)
+	'		'The selected item in valList is matched to be similarly long as the otherName
+	'		'For the first positive and negative item, within bins the shorter word is chosen; opposite is true for the second items
+	'		'This should prevent words being used twice
+	'		' Another way to tackle this, could be to set wordlists with 2 words for each length, and match exactly on length, but would require quite some recoding
+	'		Primes(4).Add(strList(index + (4 * (nameL - (name.Length Mod 2)))))
+	'		'Adds a letter string, exactly matching the length of otherName
+	'		'4 different letters are used (B,S,G,R) and as such, 1 match for each otherName
+	'		If Primes(2).Count < 2 Then
+	'			Primes(2).Add(name)
+	'		Else Primes(3).Add(name)
+	'		End If 'Also adds the otherPrime name
+	'	Next
+	'	Return Primes 'Primes is a List of Lists of Strings -> 5 lists: PositiveNounPrimes(2), NegativeNounPrimes(2), PositiveOthers(2), NegativeOthers(2), MatchingLetterStrings(4)
 
-	End Function
+	'End Function
 
 	Public Function createTrials(Primes As List(Of List(Of String)), Target As List(Of List(Of String)), Optional timesPrimes As Integer = 2)
 
@@ -370,7 +375,7 @@ Module mainModule
 		Next
 
 		Return Trials 'Trials is a List of Lists of Strings -> Each List of Strings is a Trial
-		'-> Each Trial contains 4 items: Prime, Target, PrimeCategory [0 = PositiveNoun, 1 = NegativeNoun, 2 = PositiveOther, 3 = NegativeOther, 4 = LetterString], TargetCategory [0 = Positive, 1 = Negative]
+		'-> Each Trial contains 4 items: Prime, Target, PrimeCategory, TargetCategory
 	End Function
 
 	Public Sub saveCSV(ByVal dataFrame As Dictionary(Of String, String), Optional ByVal path As String = "rawData.csv")

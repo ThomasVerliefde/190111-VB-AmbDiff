@@ -27,25 +27,25 @@ Public Class practiceForm
 
 		Cursor.Hide()
 
-		Me.timerITI.Interval = 1500
+		Me.timerITI.Interval = 300
 		Me.timerFix.Interval = 500
 		Me.timerPrime.Interval = 150
 
-		If debugMode Then
-			Me.timerITI.Interval = 150
-			Me.timerFix.Interval = 150
-			Me.timerPrime.Interval = 150
-		End If
+		'If debugMode Then
+		'	Me.timerITI.Interval = 300
+		'	Me.timerFix.Interval = 500
+		'	Me.timerPrime.Interval = 150
+		'End If
 
 		Me.Controls.AddRange({Me.leftLab, Me.rightLab, Me.slowLab, Me.fixLab, Me.primeLab, Me.targetLab})
 
 		Select Case _mainForm.keyAss
-			Case "Apos"
-				Me.leftLab.Text = "A = positiv"
-				Me.rightLab.Text = "L = negativ"
-			Case "Aneg"
-				Me.leftLab.Text = "A = negativ"
-				Me.rightLab.Text = "L = positiv"
+			Case "Ypos"
+				Me.leftLab.Text = "Y = positiv"
+				Me.rightLab.Text = "- = negativ"
+			Case "Yneg"
+				Me.leftLab.Text = "Y = negativ"
+				Me.rightLab.Text = "- = positiv"
 		End Select
 
 		For Each label In New List(Of Label)({Me.leftLab, Me.rightLab})
@@ -121,12 +121,12 @@ Public Class practiceForm
 
 		e.Handled = Me.ignoreKeys 'Stops the event when it is not the categorisation-phase
 
-		If e.KeyCode = Keys.A Or e.KeyCode = Keys.L Then 'Non-short-circuited "Or" (instead of OrElse) to prevent systematic differences between A and L (although these would be minimal)
+		If e.KeyCode = Keys.Y Or e.KeyCode = Keys.Separator Then 'Non-short-circuited "Or" (instead of OrElse) to prevent systematic differences between A and L (although these would be minimal)
 			Me.answeringTime = Me.stopwatchTarget.ElapsedMilliseconds
 			Me.stopwatchTarget.Reset()
 			Me.timerITI.Start()
 			Me.targetLab.Visible = False
-			Me.slowLab.Visible = Me.answeringTime > 1500
+			Me.slowLab.Visible = Me.answeringTime > 1000
 			Me.ignoreKeys = True
 
 			dataFrame("practice_" & Me.trialCounter & "_answer") = e.KeyCode.ToString

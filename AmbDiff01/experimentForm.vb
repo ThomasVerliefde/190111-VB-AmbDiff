@@ -38,13 +38,13 @@ Public Class experimentForm
 
 		Me.Controls.AddRange({Me.leftLab, Me.rightLab, Me.slowLab, Me.fixLab, Me.primeLab, Me.targetLab})
 
-		Select Case mainForm.keyAss
-			Case "Apos"
-				Me.leftLab.Text = "A = positiv"
-				Me.rightLab.Text = "L = negativ"
-			Case "Aneg"
-				Me.leftLab.Text = "A = negativ"
-				Me.rightLab.Text = "L = positiv"
+		Select Case _mainForm.keyAss
+			Case "Ypos"
+				Me.leftLab.Text = "Y = positiv"
+				Me.rightLab.Text = "- = negativ"
+			Case "Yneg"
+				Me.leftLab.Text = "Y = negativ"
+				Me.rightLab.Text = "- = positiv"
 		End Select
 
 		For Each label In New List(Of Label)({Me.leftLab, Me.rightLab})
@@ -116,7 +116,7 @@ Public Class experimentForm
 		Me.ignoreKeys = False
 
 		If debugMode Then
-			SendKeys.SendWait("A")
+			SendKeys.SendWait("Y")
 		End If
 
 	End Sub
@@ -125,7 +125,7 @@ Public Class experimentForm
 
 		e.Handled = Me.ignoreKeys 'Stops the event when it is not the categorisation-phase
 
-		If e.KeyCode = Keys.A Or e.KeyCode = Keys.L Then 'Non-short-circuited "Or" (instead of OrElse) to prevent systematic differences between A and L (although these would be minimal)
+		If e.KeyCode = Keys.Y Or e.KeyCode = Keys.Separator Then 'Non-short-circuited "Or" (instead of OrElse) to prevent systematic differences between A and L (although these would be minimal)
 			Me.answeringTime = Me.stopwatchTarget.ElapsedMilliseconds
 			Me.stopwatchTarget.Reset()
 			Me.timerITI.Start()
@@ -133,16 +133,19 @@ Public Class experimentForm
 			Me.slowLab.Visible = Me.answeringTime > 1000
 			Me.ignoreKeys = True
 
-			dataFrame("experiment_" & Me.trialCounter & "_answer") = e.KeyCode.ToString
-			dataFrame("experiment_" & Me.trialCounter & "_time") = Me.answeringTime.ToString
-			dataFrame("experiment_" & Me.trialCounter & "_prime") = experimentTrials(Me.trialCounter)(0)
-			dataFrame("experiment_" & Me.trialCounter & "_target") = experimentTrials(Me.trialCounter)(1)
-			dataFrame("experiment_" & Me.trialCounter & "_primeCat") = experimentTrials(Me.trialCounter)(2)
-			dataFrame("experiment_" & Me.trialCounter & "_targetCat") = experimentTrials(Me.trialCounter)(3)
+			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_answer") = e.KeyCode.ToString
+			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_time") = Me.answeringTime.ToString
+			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_prime") = experimentTrials(Me.trialCounter)(0)
+			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_target") = experimentTrials(Me.trialCounter)(1)
+			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_primeCat") = experimentTrials(Me.trialCounter)(2)
+			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_targetCat") = experimentTrials(Me.trialCounter)(3)
 
 			Me.trialCounter += 1
 
 			If Me.trialCounter = experimentTrials.Count Then
+				blockCounter += 1
+				trialCounter = 0
+				shuffleList(experimentTrials)
 				Me.timerITI.Stop()
 				Cursor.Show()
 				Me.Close()

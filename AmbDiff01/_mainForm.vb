@@ -12,7 +12,8 @@ Public Class _mainForm
 	Private startT As Instant
 	'Private otherT As Instant
 	Private practiceT As Instant
-	Private experimentT As Instant
+	Private experimentT0 As Instant
+	Private experimentT1 As Instant
 	'Private explicitT As Instant
 	Private demographicsT As Instant
 	Private endT As Instant
@@ -20,7 +21,8 @@ Public Class _mainForm
 	'All NodaTime.Duration variables, to check the actual duration (difference in sequential starting points) of each part
 	'Private timeOther As Duration
 	Private timePractice As Duration
-	Private timeExperiment As Duration
+	Private timeExperimentB0 As Duration
+	Private timeExperimentB1 As Duration
 	'Private timeExplicit As Duration
 	Private timeDemographics As Duration
 	Private timeTotal As Duration
@@ -32,8 +34,11 @@ Public Class _mainForm
 	'Friend otherPos As New List(Of String)
 	'Friend otherNeg As New List(Of String)
 
-	Public practicePrimes As List(Of List(Of String))
-	Public experimentPrimes As List(Of List(Of String))
+	'Public practicePrimes As List(Of List(Of String))
+	'Public experimentPrimes As List(Of List(Of String))
+
+	Private savePrimes As New List(Of String)
+	Private saveTrials As New List(Of String)
 
 	Private Sub formLoad(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -71,10 +76,10 @@ Public Class _mainForm
 				shuffleList(practicePrime_Str)
 
 				'practicePrimes is a List of List of String with 5 lists: PositiveNounPrimes, NegativeNounPrimes, PositiveOthers, NegativeOthers, MatchingLetterStrings
-				Me.practicePrimes = New List(Of List(Of String))({
-								New List(Of String)({practicePrime_Pos(0)}),
-								New List(Of String)({practicePrime_Neg(0)}),
-								New List(Of String)({practicePrime_Str(0)})
+				practicePrimes = New List(Of List(Of String))({
+								New List(Of String)({practicePrime_Pos(0), practicePrime_Pos(1)}),
+								New List(Of String)({practicePrime_Neg(0), practicePrime_Neg(1)}),
+								New List(Of String)({practicePrime_Str(0), practicePrime_Str(1)})
 								})
 
 				'If debugMode Then
@@ -89,14 +94,14 @@ Public Class _mainForm
 				'End If
 
 				practiceTrials = createTrials(
-					Me.practicePrimes,
+					practicePrimes,
 					New List(Of List(Of String))({
 						 New List(Of String)(My.Resources.practiceTarget_Pos.Split(" ")),
 						 New List(Of String)(My.Resources.practiceTarget_Neg.Split(" "))
 					 }),
 					timesPrimes:=2 'How often each prime is paired with a target from each category
-										)
-				' Results in 20 Trials (Can shorten to 10 by setting timesPrimes to 1)
+				) ' Results in 20 Trials (Can shorten to 10 by setting timesPrimes to 1)
+
 
 				'If debugMode Then
 				'	Console.WriteLine("- practiceTrials -")
@@ -111,38 +116,36 @@ Public Class _mainForm
 				'	Console.WriteLine("Amount of Trials: " & amount)
 				'End If
 
+				practicePrimes.ForEach(Sub(x) Me.savePrimes.Add(String.Join(" ", x)))
+				dataFrame("practicePrimes") = String.Join(" ", Me.savePrimes)
+
+				practiceTrials.ForEach(Sub(x) Me.saveTrials.Add(String.Join(" ", x)))
+				dataFrame("practiceTrials") = String.Join("-", Me.saveTrials)
+
 				shuffleList(practiceTrials)
-
-				Dim savePrimes As New List(Of String)
-				Me.practicePrimes.ForEach(Sub(x) savePrimes.Add(String.Join(" ", x)))
-				dataFrame("practicePrimes") = String.Join(" ", savePrimes)
-
-				Dim saveTrials As New List(Of String)
-				practiceTrials.ForEach(Sub(x) saveTrials.Add(String.Join(" ", x)))
-				dataFrame("practiceTrials") = String.Join("-", saveTrials)
 
 				' Experiment Trials
 
-				Me.experimentPrimes =
+				experimentPrimes =
 					New List(Of List(Of String))({
 						New List(Of String)(My.Resources.experimentPrime_Pos.Split(" ")),
 						New List(Of String)(My.Resources.experimentPrime_Neg.Split(" ")),
 						New List(Of String)(My.Resources.experimentPrime_Str.Split(" "))
 					})
 
-				If debugMode Then
-					Console.WriteLine("- experimentPrimes -")
-					For Each c In Me.experimentPrimes
-						For Each d In c
-							Console.Write(" * " + d)
-						Next
-						Console.WriteLine("")
-					Next
-					Console.WriteLine("")
-				End If
+				'If debugMode Then
+				'	Console.WriteLine("- experimentPrimes -")
+				'	For Each c In experimentPrimes
+				'		For Each d In c
+				'			Console.Write(" * " + d)
+				'		Next
+				'		Console.WriteLine("")
+				'	Next
+				'	Console.WriteLine("")
+				'End If
 
 				experimentTrials = createTrials(
-					Me.experimentPrimes,
+					experimentPrimes,
 					New List(Of List(Of String))({
 						New List(Of String)(My.Resources.experimentTarget_Pos.Split(" ")),
 						New List(Of String)(My.Resources.experimentTarget_Neg.Split(" "))
@@ -151,74 +154,72 @@ Public Class _mainForm
 				)
 				' Results in (12 [Primes] x 2 [Targets] x 4) 96 Trials
 
-				If debugMode Then
-					Console.WriteLine("- experimentTrials -")
-					Dim amount As Integer
-					For Each c In experimentTrials
-						For Each d In c
-							Console.Write(" * " + d)
-						Next
-						amount += c.Count
-						Console.WriteLine("")
-					Next
-					Console.WriteLine("Amount of Trials: " & amount)
-				End If
+				'If debugMode Then
+				'	Console.WriteLine("- experimentTrials -")
+				'	Dim amount As Integer
+				'	For Each c In experimentTrials
+				'		For Each d In c
+				'			Console.Write(" * " + d)
+				'		Next
+				'		amount += c.Count
+				'		Console.WriteLine("")
+				'	Next
+				'	Console.WriteLine("Amount of Trials: " & amount)
+				'End If
+
+				Me.savePrimes.Clear()
+				experimentPrimes.ForEach(Sub(x) Me.savePrimes.Add(String.Join(" ", x)))
+				dataFrame("experimentPrimes") = String.Join(" ", Me.savePrimes)
+
+				Me.saveTrials.Clear()
+				experimentTrials.ForEach(Sub(x) Me.saveTrials.Add(String.Join(" ", x)))
+				dataFrame("experimentTrials") = String.Join("-", Me.saveTrials)
 
 				shuffleList(experimentTrials)
 
-				savePrimes.Clear()
-				Me.experimentPrimes.ForEach(Sub(x) savePrimes.Add(String.Join(" ", x)))
-				dataFrame("experimentPrimes") = String.Join(" ", savePrimes)
-
-				saveTrials.Clear()
-				experimentTrials.ForEach(Sub(x) saveTrials.Add(String.Join(" ", x)))
-				dataFrame("experimentTrials") = String.Join("-", saveTrials)
-
-			Case 2 'Practice Trials
+			Case 1 'Practice Trials
 				Me.practiceT = time.GetCurrentInstant()
 				practiceForm.ShowDialog()
 				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_3_experiment" & Me.keyAss)
 				practiceForm.Dispose()
 
-			Case 3 'Experiment Proper
-				Me.experimentT = time.GetCurrentInstant()
+			Case 2 'Experiment Proper Block 1
+				Me.experimentT0 = time.GetCurrentInstant()
 				experimentForm.ShowDialog()
-				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_4_explicitInstr")
+				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_4_block" & Me.keyAss)
 				experimentForm.Dispose()
 
-			Case 4 'Explicit/Direct Measurements of Ambivalence
-				Me.explicitT = time.GetCurrentInstant()
-				explicitForm.ShowDialog()
+			Case 3 'Experiment Proper Block 2		!There should be an adaptable way to implement blocks!
+				Me.experimentT1 = time.GetCurrentInstant()
+				experimentForm.ShowDialog()
 				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_5_demoInstr")
-				explicitForm.Dispose()
+				experimentForm.Dispose()
 
-			Case 5 'Demographic Information
+			Case 4 'Demographic Information
 				Me.demographicsT = time.GetCurrentInstant()
 				demographicsForm.ShowDialog()
 				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_6_endInstr")
 				demographicsForm.Dispose()
 
-				Me.instrText.Font = New Font("Microsoft Sans Serif", 40)
+				Me.instrText.Font = sansSerif40
 				Me.contButton.Text = "Abbrechen"
 				Me.endT = time.GetCurrentInstant()
 
-				Me.timeOther = Me.practiceT - Me.otherT
-				Me.timePractice = Me.experimentT - Me.practiceT
-				Me.timeExperiment = Me.explicitT - Me.experimentT
-				Me.timeExplicit = Me.demographicsT - Me.explicitT
+				Me.timePractice = Me.experimentT0 - Me.practiceT
+				Me.timeExperimentB0 = Me.experimentT1 - Me.experimentT0
+				Me.timeExperimentB1 = Me.demographicsT - Me.experimentT1
 				Me.timeDemographics = Me.endT - Me.demographicsT
 				Me.timeTotal = Me.endT - Me.startT
 
-				dataFrame("timeOther") = Me.timeOther.TotalMinutes.ToString
 				dataFrame("timePractice") = Me.timePractice.TotalMinutes.ToString
-				dataFrame("timeExperiment") = Me.timeExperiment.TotalMinutes.ToString
-				dataFrame("timeExplicit") = Me.timeExplicit.TotalMinutes.ToString
+				dataFrame("timeExperimentB0") = Me.timeExperimentB0.TotalMinutes.ToString
+				dataFrame("timeExperimentB1") = Me.timeExperimentB1.TotalMinutes.ToString
 				dataFrame("timeDemographics") = Me.timeDemographics.TotalMinutes.ToString
 				dataFrame("timeTotal") = Me.timeTotal.TotalMinutes.ToString
 				dataFrame("hostName") = Net.Dns.GetHostName()
 
 				IO.Directory.CreateDirectory("Data")
-				saveCSV(dataFrame, "Data\RelAmb_" & dataFrame("Subject") & "_" & Net.Dns.GetHostName & ".csv")
+				saveCSV(dataFrame, "Data\AmbDiff01_" & dataFrame("Subject") & "_" & Net.Dns.GetHostName & ".csv")
 
 			Case Else
 				Me.Close()

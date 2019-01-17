@@ -160,4 +160,22 @@
   <data name="_1_practiceYpos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Instructions\_1_practiceYpos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="_2_experimentYneg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Instructions\_2_experimentYneg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_2_experimentYpos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Instructions\_2_experimentYpos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_3_blockYneg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Instructions\_3_blockYneg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_3_blockYpos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Instructions\_3_blockYpos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_4_demoInstr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Instructions\_4_demoInstr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_5_endInstr" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Instructions\_5_endInstr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

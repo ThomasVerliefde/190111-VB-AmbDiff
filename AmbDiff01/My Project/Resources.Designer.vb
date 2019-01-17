@@ -97,6 +97,60 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property _2_experimentYneg() As String
+            Get
+                Return ResourceManager.GetString("_2_experimentYneg", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property _2_experimentYpos() As String
+            Get
+                Return ResourceManager.GetString("_2_experimentYpos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property _3_blockYneg() As String
+            Get
+                Return ResourceManager.GetString("_3_blockYneg", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property _3_blockYpos() As String
+            Get
+                Return ResourceManager.GetString("_3_blockYpos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property _4_demoInstr() As String
+            Get
+                Return ResourceManager.GetString("_4_demoInstr", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property _5_endInstr() As String
+            Get
+                Return ResourceManager.GetString("_5_endInstr", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to 1 0 0 1 0 1 1 0 1 1 0 0 1 1 0 0 0 1 0 1 0 1 1 0 1 0 0 1 1 0 0 1 1 0 0 1 1 0 0 1 0 1 1 0 1 1 0 0 0 0 1 1 1 0 1 0 1 0 0 1 1 0 0 1 1 0 0 1 0 0 1 1 1 0 0 1 0 1 1 0 0 1 0 1 1 1 0 0 1 0 1 0 1 0 1 0 1 0 0 1 0 0 1 1 1 0 0 1 1 0 0 1 1 1 0 0 1 1 0 0 0 0 1 1 1 0 1 0 0 0 1 1 1 1 0 0 1 1 0 0 1 1 0 0 0 1 1 0 0 1 1 0 0 0 1 1 0 1 1 0 1 0 1 0 1 1 0 0 0 0 1 1 0 1 1 0 1 1 0 0 1 1 0 0 0 0 1 1 0 1 1 0 1 0 1 0 0 0 1 1 0 0 1 1 0 1 0 1 0 1 0 1 1 0 1 0 1 0 0 1 1 0 1 0 0 1 0 1 1 0 0 1 1 1 0 0 1 1 0 0 1 0 0 1 0 1 1 0 1 0 1 0 1 1 0 0  [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property BlockRandomisation() As String
