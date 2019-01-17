@@ -232,8 +232,4 @@ Public Class _mainForm
 		Me.instructionCount += 1
 	End Sub
 
-
-
-
-
 End Class
