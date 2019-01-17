@@ -63,10 +63,6 @@ Public Class _mainForm
 
 				' Practice Trials
 
-				'Dim otherPractice As New List(Of String)(My.Resources.practiceOthers.Split(" "))
-				'otherPractice = compareList(Me.otherNeg, otherPractice)
-				'otherPractice = compareList(Me.otherPos, otherPractice)
-				'shuffleList(otherPractice)
 				Dim practicePrime_Pos As New List(Of String)(My.Resources.practicePrime_Pos.Split(" "))
 				shuffleList(practicePrime_Pos)
 				Dim practicePrime_Neg As New List(Of String)(My.Resources.practicePrime_Neg.Split(" "))
@@ -78,8 +74,6 @@ Public Class _mainForm
 				Me.practicePrimes = New List(Of List(Of String))({
 								New List(Of String)({practicePrime_Pos(0)}),
 								New List(Of String)({practicePrime_Neg(0)}),
-								New List(Of String)({otherPractice(0)}),
-								New List(Of String)({otherPractice(1)}),
 								New List(Of String)({practicePrime_Str(0)})
 								})
 
@@ -95,27 +89,27 @@ Public Class _mainForm
 				'End If
 
 				practiceTrials = createTrials(
-										Me.practicePrimes,
-										New List(Of List(Of String))({
-											 New List(Of String)(My.Resources.practiceTarget_Pos.Split(" ")),
-											 New List(Of String)(My.Resources.practiceTarget_Neg.Split(" "))
-											 }),
-										timesPrimes:=2 'How often each prime is paired with a target from each category
+					Me.practicePrimes,
+					New List(Of List(Of String))({
+						 New List(Of String)(My.Resources.practiceTarget_Pos.Split(" ")),
+						 New List(Of String)(My.Resources.practiceTarget_Neg.Split(" "))
+					 }),
+					timesPrimes:=2 'How often each prime is paired with a target from each category
 										)
 				' Results in 20 Trials (Can shorten to 10 by setting timesPrimes to 1)
 
-				If debugMode Then
-					Console.WriteLine("- practiceTrials -")
-					Dim amount As Integer
-					For Each c In practiceTrials
-						For Each d In c
-							Console.Write(" * " + d)
-						Next
-						amount += c.Count
-						Console.WriteLine("")
-					Next
-					Console.WriteLine("Amount of Trials: " & amount)
-				End If
+				'If debugMode Then
+				'	Console.WriteLine("- practiceTrials -")
+				'	Dim amount As Integer
+				'	For Each c In practiceTrials
+				'		For Each d In c
+				'			Console.Write(" * " + d)
+				'		Next
+				'		amount += c.Count
+				'		Console.WriteLine("")
+				'	Next
+				'	Console.WriteLine("Amount of Trials: " & amount)
+				'End If
 
 				shuffleList(practiceTrials)
 
@@ -129,13 +123,12 @@ Public Class _mainForm
 
 				' Experiment Trials
 
-				Me.experimentPrimes = createPrimes(
-					Me.otherPos,
-					Me.otherNeg,
-					New List(Of String)(My.Resources.experimentPrime_Pos.Split(" ")),
-					New List(Of String)(My.Resources.experimentPrime_Neg.Split(" ")),
-					New List(Of String)(My.Resources.experimentPrime_Str.Split(" "))
-				)
+				Me.experimentPrimes =
+					New List(Of List(Of String))({
+						New List(Of String)(My.Resources.experimentPrime_Pos.Split(" ")),
+						New List(Of String)(My.Resources.experimentPrime_Neg.Split(" ")),
+						New List(Of String)(My.Resources.experimentPrime_Str.Split(" "))
+					})
 
 				If debugMode Then
 					Console.WriteLine("- experimentPrimes -")
