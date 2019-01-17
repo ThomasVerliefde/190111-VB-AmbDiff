@@ -55,26 +55,18 @@ Public Class _mainForm
 
 	Public Sub loadNext(sender As Object, e As EventArgs) Handles contButton.Click
 		Select Case Me.instructionCount
-			Case 0 'Start of Experiment
-				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_1_otherInstr")
+			Case 0 'Start of Experiment & Building All Trials
+				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_1_practice" & Me.keyAss)
+
 				subjectForm.Dispose()
 				Me.startT = time.GetCurrentInstant()
 
-			Case 1 'Collecting Names of 'Significant Others'
-
-				'Me.otherT = time.GetCurrentInstant()
-				'otherForm.ShowDialog()
-				'Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_2_practice" & Me.keyAss)
-				'otherForm.Dispose()
-
-				' Creating All Practice & Experiment Trials
-
 				' Practice Trials
 
-				Dim otherPractice As New List(Of String)(My.Resources.practiceOthers.Split(" "))
-				otherPractice = compareList(Me.otherNeg, otherPractice)
-				otherPractice = compareList(Me.otherPos, otherPractice)
-				shuffleList(otherPractice)
+				'Dim otherPractice As New List(Of String)(My.Resources.practiceOthers.Split(" "))
+				'otherPractice = compareList(Me.otherNeg, otherPractice)
+				'otherPractice = compareList(Me.otherPos, otherPractice)
+				'shuffleList(otherPractice)
 				Dim practicePrime_Pos As New List(Of String)(My.Resources.practicePrime_Pos.Split(" "))
 				shuffleList(practicePrime_Pos)
 				Dim practicePrime_Neg As New List(Of String)(My.Resources.practicePrime_Neg.Split(" "))

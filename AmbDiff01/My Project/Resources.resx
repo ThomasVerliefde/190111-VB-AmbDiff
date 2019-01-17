@@ -121,7 +121,43 @@
   <data name="BlockRandomisation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlockRandomisation.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="experimentPrime_Neg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\experimentPrime_Neg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="experimentPrime_Pos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\experimentPrime_Pos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="experimentPrime_Str" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\experimentPrime_Str.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="experimentTarget_Neg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\experimentTarget_Neg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="experimentTarget_Pos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\experimentTarget_Pos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="practicePrime_Neg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\practicePrime_Neg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="practicePrime_Pos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\practicePrime_Pos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="practicePrime_Str" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\practicePrime_Str.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="practiceTarget_Neg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\practiceTarget_Neg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="practiceTarget_Pos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\practiceTarget_Pos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="_0_mainInstr" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Instructions\_0_mainInstr.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_1_practiceYneg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Instructions\_1_practiceYneg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="_1_practiceYpos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Instructions\_1_practiceYpos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

@@ -4,7 +4,6 @@
 	Private WithEvents contButton As New continueButton(Txt:="Bestätigen")
 	Private WithEvents textBox As New TextBox
 	Private ReadOnly subjPanel As New labelledBox(Me.textBox, "VPNr:")
-	'Private condN As Integer
 	Private subjN As Integer
 
 	Private Sub formLoad(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -44,7 +43,6 @@
 			Exit Sub
 		Else
 			Me.subjN = CInt(Me.textBox.Text)
-			'Me.condN = setCond(Me.subjN)
 			Select Case getCond(Me.subjN)
 				Case 0
 					_mainForm.keyAss = "Ypos"
@@ -54,7 +52,6 @@
 
 			dataFrame("Subject") = Me.subjN.ToString
 			dataFrame("Key") = _mainForm.keyAss
-			'dataFrame("FirstOthers") = _mainForm.firstOthers
 
 			If debugMode Then
 				dataFrame("Subject") = "DEBUG"

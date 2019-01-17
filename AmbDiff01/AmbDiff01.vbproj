@@ -152,6 +152,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="iconExp.ico" />
+    <Content Include="Resources\Instructions\_1_practiceYneg.txt" />
+    <Content Include="Resources\Instructions\_1_practiceYpos.txt" />
+    <EmbeddedResource Include="Resources\Stimuli\experimentPrime_Neg.txt" />
+    <EmbeddedResource Include="Resources\Stimuli\experimentPrime_Pos.txt" />
+    <EmbeddedResource Include="Resources\Stimuli\experimentPrime_Str.txt" />
+    <EmbeddedResource Include="Resources\Stimuli\experimentTarget_Neg.txt" />
+    <EmbeddedResource Include="Resources\Stimuli\experimentTarget_Pos.txt" />
+    <EmbeddedResource Include="Resources\Stimuli\practicePrime_Neg.txt" />
+    <EmbeddedResource Include="Resources\Stimuli\practicePrime_Pos.txt" />
+    <EmbeddedResource Include="Resources\Stimuli\practicePrime_Str.txt" />
+    <EmbeddedResource Include="Resources\Stimuli\practiceTarget_Neg.txt" />
+    <EmbeddedResource Include="Resources\Stimuli\practiceTarget_Pos.txt" />
     <EmbeddedResource Include="Resources\Instructions\_0_mainInstr.txt" />
     <EmbeddedResource Include="Resources\BlockRandomisation.txt" />
   </ItemGroup>

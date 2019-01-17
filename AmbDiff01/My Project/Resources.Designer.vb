@@ -61,11 +61,38 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to .
+        '''  Looks up a localized string similar to {\rtf1 \ansi \par \par \par \par \qc
+        '''Liebe Versuchsperson, \par \par
+        '''
+        '''vielen Dank für Ihre Teilnahme an dieser Studie! \par \par \par
+        '''
+        '''Die Studie wird aus mehreren Aufgaben bestehen, die Sie nacheinander bearbeiten. \par \par
+        '''Bitte lesen Sie die Instruktionen immer aufmerksam durch! \par \par \par \par
+        '''
+        '''Starten Sie mit dem ersten Teil der Studie, indem Sie den &quot;Weiter&quot;-Button drücken.
+        '''}.
         '''</summary>
         Friend ReadOnly Property _0_mainInstr() As String
             Get
                 Return ResourceManager.GetString("_0_mainInstr", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property _1_practiceYneg() As String
+            Get
+                Return ResourceManager.GetString("_1_practiceYneg", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property _1_practiceYpos() As String
+            Get
+                Return ResourceManager.GetString("_1_practiceYpos", resourceCulture)
             End Get
         End Property
         
@@ -75,6 +102,96 @@ Namespace My.Resources
         Friend ReadOnly Property BlockRandomisation() As String
             Get
                 Return ResourceManager.GetString("BlockRandomisation", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Not Leid Feind Streit Drohung Abschied Gefängnis Verbrechen.
+        '''</summary>
+        Friend ReadOnly Property experimentPrime_Neg() As String
+            Get
+                Return ResourceManager.GetString("experimentPrime_Neg", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Mut Lust Glück Freude Frieden Hoffnung Vertrauen Wochenende.
+        '''</summary>
+        Friend ReadOnly Property experimentPrime_Pos() As String
+            Get
+                Return ResourceManager.GetString("experimentPrime_Pos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Lpq Pgn Xbz Srj Fmhj Qpqd Tpfk Mqvl Hhwcj Pdvgw Rpxvk Rvhgl Sckrfl Snxwhv Wgwpkt Zcknhr Tkspzcg Lkxfstq Sskfblx Wmrzbnq Fkmrzdhs Mbdrfnmj Hvklxrhs Ldcfmxkz Lzhxpjtrf Vpwndzmsl Stglnwcbv Blvqxsjph Qmtcqswzfv Dpkbgrsvqj Jkvntxljph Nlvsngqpwx.
+        '''</summary>
+        Friend ReadOnly Property experimentPrime_Str() As String
+            Get
+                Return ResourceManager.GetString("experimentPrime_Str", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to BRUTAL EINSAM ELEND GRAUSAM ILLEGAL KRANK TRAGISCH TRAURIG.
+        '''</summary>
+        Friend ReadOnly Property experimentTarget_Neg() As String
+            Get
+                Return ResourceManager.GetString("experimentTarget_Neg", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to BELIEBT GENIAL GESUND LEBENDIG OPTIMAL PERFEKT SONNIG SUPER.
+        '''</summary>
+        Friend ReadOnly Property experimentTarget_Pos() As String
+            Get
+                Return ResourceManager.GetString("experimentTarget_Pos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Mord Angst Sklave.
+        '''</summary>
+        Friend ReadOnly Property practicePrime_Neg() As String
+            Get
+                Return ResourceManager.GetString("practicePrime_Neg", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Kuss Idee Chance.
+        '''</summary>
+        Friend ReadOnly Property practicePrime_Pos() As String
+            Get
+                Return ResourceManager.GetString("practicePrime_Pos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Lpqmf Pxbzqnh.
+        '''</summary>
+        Friend ReadOnly Property practicePrime_Str() As String
+            Get
+                Return ResourceManager.GetString("practicePrime_Str", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to BOSHAFT KORRUPT UNGERECHT GEHÄSSIG.
+        '''</summary>
+        Friend ReadOnly Property practiceTarget_Neg() As String
+            Get
+                Return ResourceManager.GetString("practiceTarget_Neg", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to GEDULDIG ZÄRTLICH HUMORVOLL FLEISSIG.
+        '''</summary>
+        Friend ReadOnly Property practiceTarget_Pos() As String
+            Get
+                Return ResourceManager.GetString("practiceTarget_Pos", resourceCulture)
             End Get
         End Property
     End Module
