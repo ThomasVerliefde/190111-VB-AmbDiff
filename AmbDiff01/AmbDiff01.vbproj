@@ -152,6 +152,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="iconExp.ico" />
+    <EmbeddedResource Include="Resources\Instructions\_0_mainInstr.txt" />
+    <EmbeddedResource Include="Resources\BlockRandomisation.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

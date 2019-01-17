@@ -162,8 +162,8 @@ Module mainModule
 		Public Function madeSelection()
 			If Me.optionBox.Text = "" Then
 				Return False
+			Else Return True
 			End If
-			Return True
 		End Function
 
 	End Class
@@ -262,14 +262,15 @@ Module mainModule
 
 	End Sub
 
-	Public Function setCond(subjN As Integer)
+	Public Function getCond(subjN As Integer)
 		Return Val(My.Resources.BlockRandomisation((subjN - 1) * 2))
+		'Explanation: subjN - 1 as we start with subject 1, but intend to use the number at position 0
+		'			  * 2 as we have each number seperated by 'space': the second number is at position 2, the third number is at position 4, ...
 	End Function
 
 #Disable Warning IDE1006 ' Naming Styles
 	Public Function IsName(ByVal checkString As String)
 #Enable Warning IDE1006 ' Naming Styles
-
 		'This Regex monstrosity checks whether the string is:
 		' a) just letters, including weird ones
 		' b) (weird)letters, separated by at most 1 dash ("-"), but this pattern (e.g. a-a) could can show up multiple times (to allow for weird Marie-Louise-Antoinnette)
@@ -292,6 +293,8 @@ Module mainModule
 			End If
 		Next
 	End Sub
+
+
 
 	Public Function compareList(compList As List(Of String), compTest As List(Of String))
 		Dim compReturn As New List(Of String)(compTest)

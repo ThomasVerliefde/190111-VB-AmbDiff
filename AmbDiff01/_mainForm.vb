@@ -18,19 +18,19 @@ Public Class _mainForm
 	Private endT As Instant
 
 	'All NodaTime.Duration variables, to check the actual duration (difference in sequential starting points) of each part
-	Private timeOther As Duration
+	'Private timeOther As Duration
 	Private timePractice As Duration
 	Private timeExperiment As Duration
-	Private timeExplicit As Duration
+	'Private timeExplicit As Duration
 	Private timeDemographics As Duration
 	Private timeTotal As Duration
 
-	'Variable necessary for grabbing the correct instruction sheet, depending on whether the 'A' key is used to categorize positive adjectives, or for negative adjectives
+	'Variable necessary for grabbing the correct instruction sheet, depending on whether the 'Y' key is used to categorize positive adjectives, or for negative adjectives
 	Friend keyAss As String
-	Friend firstOthers As String
+	'Friend firstOthers As String
 
-	Friend otherPos As New List(Of String)
-	Friend otherNeg As New List(Of String)
+	'Friend otherPos As New List(Of String)
+	'Friend otherNeg As New List(Of String)
 
 	Public practicePrimes As List(Of List(Of String))
 	Public experimentPrimes As List(Of List(Of String))
