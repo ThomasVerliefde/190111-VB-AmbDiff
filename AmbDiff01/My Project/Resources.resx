@@ -121,6 +121,9 @@
   <data name="BlockRandomisation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BlockRandomisation.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="experimentPrime_Amb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\experimentPrime_Amb.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
   <data name="experimentPrime_Neg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stimuli\experimentPrime_Neg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -135,6 +138,9 @@
   </data>
   <data name="experimentTarget_Pos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stimuli\experimentTarget_Pos.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="practicePrime_Amb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Stimuli\practicePrime_Amb.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="practicePrime_Neg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Stimuli\practicePrime_Neg.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>

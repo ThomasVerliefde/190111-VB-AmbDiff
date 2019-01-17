@@ -144,7 +144,6 @@ Public Class experimentForm
 
 			If Me.trialCounter = experimentTrials.Count Then
 				blockCounter += 1
-				trialCounter = 0
 				shuffleList(experimentTrials)
 				Me.timerITI.Stop()
 				Cursor.Show()

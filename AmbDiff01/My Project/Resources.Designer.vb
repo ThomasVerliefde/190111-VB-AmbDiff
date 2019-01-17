@@ -160,6 +160,15 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property experimentPrime_Amb() As String
+            Get
+                Return ResourceManager.GetString("experimentPrime_Amb", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized string similar to Not Leid Feind Streit Drohung Abschied Gefängnis Verbrechen.
         '''</summary>
         Friend ReadOnly Property experimentPrime_Neg() As String
@@ -201,6 +210,15 @@ Namespace My.Resources
         Friend ReadOnly Property experimentTarget_Pos() As String
             Get
                 Return ResourceManager.GetString("experimentTarget_Pos", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to .
+        '''</summary>
+        Friend ReadOnly Property practicePrime_Amb() As String
+            Get
+                Return ResourceManager.GetString("practicePrime_Amb", resourceCulture)
             End Get
         End Property
         

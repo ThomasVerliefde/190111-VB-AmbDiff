@@ -68,6 +68,8 @@ Public Class _mainForm
 
 				' Practice Trials
 
+				Dim practicePrime_Amb As New List(Of String)(My.Resources.practicePrime_Amb.Split(" "))
+				shuffleList(practicePrime_Amb)
 				Dim practicePrime_Pos As New List(Of String)(My.Resources.practicePrime_Pos.Split(" "))
 				shuffleList(practicePrime_Pos)
 				Dim practicePrime_Neg As New List(Of String)(My.Resources.practicePrime_Neg.Split(" "))
@@ -77,14 +79,15 @@ Public Class _mainForm
 
 				'practicePrimes is a List of List of String with 5 lists: PositiveNounPrimes, NegativeNounPrimes, PositiveOthers, NegativeOthers, MatchingLetterStrings
 				practicePrimes = New List(Of List(Of String))({
-								New List(Of String)({practicePrime_Pos(0), practicePrime_Pos(1)}),
-								New List(Of String)({practicePrime_Neg(0), practicePrime_Neg(1)}),
-								New List(Of String)({practicePrime_Str(0), practicePrime_Str(1)})
+									New List(Of String)({practicePrime_Amb(0), practicePrime_Amb(1)}),
+									New List(Of String)({practicePrime_Pos(0), practicePrime_Pos(1)}),
+									New List(Of String)({practicePrime_Neg(0), practicePrime_Neg(1)}),
+									New List(Of String)({practicePrime_Str(0), practicePrime_Str(1)})
 								})
 
 				'If debugMode Then
 				'	Console.WriteLine("- practicePrimes -")
-				'	For Each c In Me.practicePrimes
+				'	For Each c In practicePrimes
 				'		For Each d In c
 				'			Console.Write(" * " + d)
 				'		Next
@@ -99,8 +102,8 @@ Public Class _mainForm
 						 New List(Of String)(My.Resources.practiceTarget_Pos.Split(" ")),
 						 New List(Of String)(My.Resources.practiceTarget_Neg.Split(" "))
 					 }),
-					timesPrimes:=2 'How often each prime is paired with a target from each category
-				) ' Results in 20 Trials (Can shorten to 10 by setting timesPrimes to 1)
+					timesPrimes:=1 'How often each prime is paired with a target from each category
+				) ' Results in 12 Trials (6 Primes x 2 Targets x 1 Pairings)
 
 
 				'If debugMode Then
@@ -113,7 +116,8 @@ Public Class _mainForm
 				'		amount += c.Count
 				'		Console.WriteLine("")
 				'	Next
-				'	Console.WriteLine("Amount of Trials: " & amount)
+				'	Console.WriteLine("Amount of Practice Trials: " & (amount / 4))
+				'	Console.WriteLine("")
 				'End If
 
 				practicePrimes.ForEach(Sub(x) Me.savePrimes.Add(String.Join(" ", x)))
@@ -128,21 +132,22 @@ Public Class _mainForm
 
 				experimentPrimes =
 					New List(Of List(Of String))({
+						New List(Of String)(My.Resources.experimentPrime_Amb.Split(" ")),
 						New List(Of String)(My.Resources.experimentPrime_Pos.Split(" ")),
 						New List(Of String)(My.Resources.experimentPrime_Neg.Split(" ")),
 						New List(Of String)(My.Resources.experimentPrime_Str.Split(" "))
 					})
 
-				'If debugMode Then
-				'	Console.WriteLine("- experimentPrimes -")
-				'	For Each c In experimentPrimes
-				'		For Each d In c
-				'			Console.Write(" * " + d)
-				'		Next
-				'		Console.WriteLine("")
-				'	Next
-				'	Console.WriteLine("")
-				'End If
+				If debugMode Then
+					Console.WriteLine("- experimentPrimes -")
+					For Each c In experimentPrimes
+						For Each d In c
+							Console.Write(" * " + d)
+						Next
+						Console.WriteLine("")
+					Next
+					Console.WriteLine("")
+				End If
 
 				experimentTrials = createTrials(
 					experimentPrimes,
@@ -150,22 +155,22 @@ Public Class _mainForm
 						New List(Of String)(My.Resources.experimentTarget_Pos.Split(" ")),
 						New List(Of String)(My.Resources.experimentTarget_Neg.Split(" "))
 					}),
-					timesPrimes:=4 'How often each prime is paired with a target from each category
+					timesPrimes:=2 'How often each prime is paired with a target from each category
 				)
-				' Results in (12 [Primes] x 2 [Targets] x 4) 96 Trials
+				' Results in (24 [Primes] x 2 [Targets] x 2 [Pairings]) 96 Trials
 
-				'If debugMode Then
-				'	Console.WriteLine("- experimentTrials -")
-				'	Dim amount As Integer
-				'	For Each c In experimentTrials
-				'		For Each d In c
-				'			Console.Write(" * " + d)
-				'		Next
-				'		amount += c.Count
-				'		Console.WriteLine("")
-				'	Next
-				'	Console.WriteLine("Amount of Trials: " & amount)
-				'End If
+				If debugMode Then
+					Console.WriteLine("- experimentTrials -")
+					Dim amount As Integer
+					For Each c In experimentTrials
+						For Each d In c
+							Console.Write(" * " + d)
+						Next
+						amount += c.Count
+						Console.WriteLine("")
+					Next
+					Console.WriteLine("Amount of Trials: " & (amount / 4))
+				End If
 
 				Me.savePrimes.Clear()
 				experimentPrimes.ForEach(Sub(x) Me.savePrimes.Add(String.Join(" ", x)))

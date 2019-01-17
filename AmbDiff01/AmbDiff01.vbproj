@@ -152,6 +152,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="iconExp.ico" />
+    <Content Include="Resources\Stimuli\practicePrime_Amb.txt" />
+    <Content Include="Resources\Stimuli\experimentPrime_Amb.txt" />
     <EmbeddedResource Include="Resources\Instructions\_1_practiceYneg.txt" />
     <EmbeddedResource Include="Resources\Instructions\_1_practiceYpos.txt" />
     <EmbeddedResource Include="Resources\Instructions\_2_experimentYneg.txt" />
