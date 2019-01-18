@@ -173,25 +173,25 @@ Public Class _mainForm
 			Case 1 'Practice Trials
 				Me.practiceT = time.GetCurrentInstant()
 				practiceForm.ShowDialog()
-				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_3_experiment" & Me.keyAss)
+				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_2_experiment" & Me.keyAss)
 				practiceForm.Dispose()
 
 			Case 2 'Experiment Proper Block 1
 				Me.experimentT0 = time.GetCurrentInstant()
 				experimentForm.ShowDialog()
-				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_4_block" & Me.keyAss)
+				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_3_block" & Me.keyAss)
 				experimentForm.Dispose()
 
 			Case 3 'Experiment Proper Block 2		!There should be an adaptable way to implement blocks!
 				Me.experimentT1 = time.GetCurrentInstant()
 				experimentForm.ShowDialog()
-				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_5_demoInstr")
+				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_4_demoInstr")
 				experimentForm.Dispose()
 
 			Case 4 'Demographic Information
 				Me.demographicsT = time.GetCurrentInstant()
 				demographicsForm.ShowDialog()
-				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_6_endInstr")
+				Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_5_endInstr")
 				demographicsForm.Dispose()
 
 				Me.instrText.Font = sansSerif40
