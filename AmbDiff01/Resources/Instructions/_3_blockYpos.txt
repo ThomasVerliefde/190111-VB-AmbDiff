@@ -1,0 +1,16 @@
+{\rtf1\ansi \par \par \par \par \qc
+Sie haben den ersten Teil der Testphase nun beendet. \par \par
+
+Als nächstes folgt der zweite Teil der Testphase, welche identisch ist mit dem ersten Teil. \par \par
+
+Die Zuteilung der Tasten zu "positiv" und "negativ" bleibt ebenfalls genauso wie im ersten Teil: \par \par
+
+Drücken Sie bitte die Taste "Y" auf Ihrer Tastatur, wenn das präsentierte Wort "positiv" ist. \par
+Drücken Sie bitte die Taste "-" auf Ihrer Tastatur, wenn das präsentierte Wort "negativ" ist. \par \par
+
+Denken Sie daran, die präsentierten Wörter so schnell wie möglich zu klassifizieren! \par
+Sie werden mit einem Hinweis darauf aufmerksam gemacht, falls Sie zu langsam reagieren ("Schneller!"). \par
+Obwohl es wichtig ist, dass Sie richtig kategorisieren, ist es wichtiger, schnell zu antworten! \par \par
+
+Beginnen Sie mit der zweiten Teil der Testphase, indem Sie auf den „Weiter“-Button drücken.
+}
