@@ -10,32 +10,21 @@ Public Class _mainForm
 
 	'All NodaTime.Instant variables, to check starting points of each part
 	Private startT As Instant
-	'Private otherT As Instant
 	Private practiceT As Instant
 	Private experimentT0 As Instant
 	Private experimentT1 As Instant
-	'Private explicitT As Instant
 	Private demographicsT As Instant
 	Private endT As Instant
 
 	'All NodaTime.Duration variables, to check the actual duration (difference in sequential starting points) of each part
-	'Private timeOther As Duration
 	Private timePractice As Duration
 	Private timeExperimentB0 As Duration
 	Private timeExperimentB1 As Duration
-	'Private timeExplicit As Duration
 	Private timeDemographics As Duration
 	Private timeTotal As Duration
 
 	'Variable necessary for grabbing the correct instruction sheet, depending on whether the 'Y' key is used to categorize positive adjectives, or for negative adjectives
 	Friend keyAss As String
-	'Friend firstOthers As String
-
-	'Friend otherPos As New List(Of String)
-	'Friend otherNeg As New List(Of String)
-
-	'Public practicePrimes As List(Of List(Of String))
-	'Public experimentPrimes As List(Of List(Of String))
 
 	Private savePrimes As New List(Of String)
 	Private saveTrials As New List(Of String)
@@ -51,7 +40,6 @@ Public Class _mainForm
 		Me.Controls.Add(Me.instrText)
 		objCenter(Me.instrText, 0.42)
 		Me.instrText.Rtf = My.Resources.ResourceManager.GetString("_0_mainInstr")
-
 
 		Me.Controls.Add(Me.contButton)
 		objCenter(Me.contButton)

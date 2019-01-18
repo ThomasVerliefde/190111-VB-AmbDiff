@@ -125,12 +125,12 @@ Public Class experimentForm
 
 		e.Handled = Me.ignoreKeys 'Stops the event when it is not the categorisation-phase
 
-		If e.KeyCode = Keys.Y Or e.KeyCode = Keys.Separator Then 'Non-short-circuited "Or" (instead of OrElse) to prevent systematic differences between A and L (although these would be minimal)
+		If e.KeyCode = Keys.Y Or e.KeyCode = Keys.OemMinus Then 'Non-short-circuited "Or" (instead of OrElse) to prevent systematic differences between A and L (although these would be minimal)
 			Me.answeringTime = Me.stopwatchTarget.ElapsedMilliseconds
 			Me.stopwatchTarget.Reset()
 			Me.timerITI.Start()
 			Me.targetLab.Visible = False
-			Me.slowLab.Visible = Me.answeringTime > 1000
+			Me.slowLab.Visible = Me.answeringTime > 800
 			Me.ignoreKeys = True
 
 			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_answer") = e.KeyCode.ToString
