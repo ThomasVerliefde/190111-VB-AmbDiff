@@ -73,16 +73,16 @@ Public Class _mainForm
 									New List(Of String)({practicePrime_Str(0), practicePrime_Str(1)})
 								})
 
-				'If debugMode Then
-				'	Console.WriteLine("- practicePrimes -")
-				'	For Each c In practicePrimes
-				'		For Each d In c
-				'			Console.Write(" * " + d)
-				'		Next
-				'		Console.WriteLine("")
-				'	Next
-				'	Console.WriteLine("")
-				'End If
+				If debugMode Then
+					Console.WriteLine("- practicePrimes -")
+					For Each c In practicePrimes
+						For Each d In c
+							Console.Write(" * " + d)
+						Next
+						Console.WriteLine("")
+					Next
+					Console.WriteLine("")
+				End If
 
 				practiceTrials = createTrials(
 					practicePrimes,
@@ -94,19 +94,19 @@ Public Class _mainForm
 				) ' Results in 12 Trials (6 Primes x 2 Targets x 1 Pairings)
 
 
-				'If debugMode Then
-				'	Console.WriteLine("- practiceTrials -")
-				'	Dim amount As Integer
-				'	For Each c In practiceTrials
-				'		For Each d In c
-				'			Console.Write(" * " + d)
-				'		Next
-				'		amount += c.Count
-				'		Console.WriteLine("")
-				'	Next
-				'	Console.WriteLine("Amount of Practice Trials: " & (amount / 4))
-				'	Console.WriteLine("")
-				'End If
+				If debugMode Then
+					Console.WriteLine("- practiceTrials -")
+					Dim amount As Integer
+					For Each c In practiceTrials
+						For Each d In c
+							Console.Write(" * " + d)
+						Next
+						amount += c.Count
+						Console.WriteLine("")
+					Next
+					Console.WriteLine("Amount of Practice Trials: " & (amount / 4))
+					Console.WriteLine("")
+				End If
 
 				practicePrimes.ForEach(Sub(x) Me.savePrimes.Add(String.Join(" ", x)))
 				dataFrame("practicePrimes") = String.Join(" ", Me.savePrimes)

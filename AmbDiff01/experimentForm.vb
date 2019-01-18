@@ -133,12 +133,12 @@ Public Class experimentForm
 			Me.slowLab.Visible = Me.answeringTime > 800
 			Me.ignoreKeys = True
 
-			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_answer") = e.KeyCode.ToString
-			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_time") = Me.answeringTime.ToString
-			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_prime") = experimentTrials(Me.trialCounter)(0)
-			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_target") = experimentTrials(Me.trialCounter)(1)
-			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_primeCat") = experimentTrials(Me.trialCounter)(2)
-			dataFrame("experiment_" & blockCounter & Me.trialCounter & "_targetCat") = experimentTrials(Me.trialCounter)(3)
+			dataFrame("experiment_" & blockCounter & "_" & Me.trialCounter & "_answer") = e.KeyCode.ToString
+			dataFrame("experiment_" & blockCounter & "_" & Me.trialCounter & "_time") = Me.answeringTime.ToString
+			dataFrame("experiment_" & blockCounter & "_" & Me.trialCounter & "_prime") = experimentTrials(Me.trialCounter)(0)
+			dataFrame("experiment_" & blockCounter & "_" & Me.trialCounter & "_target") = experimentTrials(Me.trialCounter)(1)
+			dataFrame("experiment_" & blockCounter & "_" & Me.trialCounter & "_primeCat") = experimentTrials(Me.trialCounter)(2)
+			dataFrame("experiment_" & blockCounter & "_" & Me.trialCounter & "_targetCat") = experimentTrials(Me.trialCounter)(3)
 
 			Me.trialCounter += 1
 
