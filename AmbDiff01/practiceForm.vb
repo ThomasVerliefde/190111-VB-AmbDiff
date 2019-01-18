@@ -31,12 +31,6 @@ Public Class practiceForm
 		Me.timerFix.Interval = 500
 		Me.timerPrime.Interval = 150
 
-		'If debugMode Then
-		'	Me.timerITI.Interval = 300
-		'	Me.timerFix.Interval = 500
-		'	Me.timerPrime.Interval = 150
-		'End If
-
 		Me.Controls.AddRange({Me.leftLab, Me.rightLab, Me.slowLab, Me.fixLab, Me.primeLab, Me.targetLab})
 
 		Select Case _mainForm.keyAss
@@ -126,7 +120,7 @@ Public Class practiceForm
 			Me.stopwatchTarget.Reset()
 			Me.timerITI.Start()
 			Me.targetLab.Visible = False
-			Me.slowLab.Visible = Me.answeringTime > 750
+			Me.slowLab.Visible = Me.answeringTime > 500
 			Me.ignoreKeys = True
 
 			dataFrame("practice_" & Me.trialCounter & "_answer") = e.KeyCode.ToString

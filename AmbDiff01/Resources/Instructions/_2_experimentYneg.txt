@@ -13,5 +13,5 @@ Denken Sie daran, die präsentierten Wörter so schnell wie möglich zu klassifi
 Sie werden mit einem Hinweis darauf aufmerksam gemacht, falls Sie zu langsam reagieren ("Schneller!"). \par
 Obwohl es wichtig ist, dass Sie richtig kategorisieren, ist es wichtiger, schnell zu antworten! \par \par
 
-Beginnen Sie mit der eigentlichen Aufgabe, indem Sie auf den „Weiter“-Button drücken.
+Beginnen Sie mit der eigentlichen Aufgabe, indem Sie auf den "Weiter"-Button drücken.
 }

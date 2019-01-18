@@ -130,7 +130,7 @@ Public Class experimentForm
 			Me.stopwatchTarget.Reset()
 			Me.timerITI.Start()
 			Me.targetLab.Visible = False
-			Me.slowLab.Visible = Me.answeringTime > 800
+			Me.slowLab.Visible = Me.answeringTime > 700
 			Me.ignoreKeys = True
 
 			dataFrame("experiment_" & blockCounter & "_" & Me.trialCounter & "_answer") = e.KeyCode.ToString
